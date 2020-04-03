@@ -1,0 +1,28 @@
+{
+    "defaultSeverity": "error",
+    "extends": ["tslint:recommended", "tslint-config-prettier","tslint-etc","tslint-react"],
+    "jsRules": {},
+    "rules": {
+      "interface-name": false,
+      "no-console": false,
+      "no-duplicate-variable": true,
+      "prettier": true,
+      "quotemark": [true, "single"],
+      "max-line-length": [
+        false,
+        120
+      ],
+      "no-unused-variable": true,
+      "no-unused-declaration": true,
+      "ordered-imports": [
+        true,
+        {
+          "import-sources-order": "lowercase-last",
+          "named-imports-order": "lowercase-first"
+        }
+      ],
+      "object-literal-sort-keys": false
+    },
+    "rulesDirectory": ["tslint-plugin-prettier"]
+  }
+  
