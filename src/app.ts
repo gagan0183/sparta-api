@@ -8,7 +8,7 @@ import * as expressvalidator from 'express-validator';
 import * as morgan from 'morgan';
 import * as passport from 'passport';
 import * as path from 'path';
-//import * as config from './config/config';
+import { Config } from './config/config';
 //import * as passportConfig from './config/passport';
 //import * as Middleware from './middleware/middleware';
 
@@ -24,6 +24,7 @@ class App {
   }
 
   private config(): void {
+    const config = new Config();
     this.app.use(cors());
     this.app.use(express.static(path.join(__dirname + '/../node_modules')));
     this.app.set('view engine', 'ejs');
