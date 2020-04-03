@@ -1,5 +1,5 @@
 import * as dotenv from 'dotenv';
-import mongoose from 'mongoose';
+import * as mongoose from 'mongoose';
 
 
 export class Config {
@@ -9,6 +9,7 @@ export class Config {
     }
 
     async connectDB() {
+        console.log(process.env.MONGODB_URI);
         if (process.env.ENVIRONMENT === 'dev') {
             await mongoose.connect(process.env.MONGODB_URI, {
                 useNewUrlParser: true,

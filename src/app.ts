@@ -9,17 +9,20 @@ import * as morgan from 'morgan';
 import * as passport from 'passport';
 import * as path from 'path';
 import { Config } from './config/config';
+import { CourseRoutes } from './routes/course';
 //import * as passportConfig from './config/passport';
 //import * as Middleware from './middleware/middleware';
 
 class App {
   public app: express.Application;
   public router: express.Router;
+  private courseRoutes: CourseRoutes = new CourseRoutes();
 
   constructor() {
     this.app = express();
     this.router = express.Router();
     this.config();
+    this.courseRoutes.routes(this.router);
     this.app.use('/v1', this.router);
   }
 
