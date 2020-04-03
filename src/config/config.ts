@@ -5,6 +5,7 @@ import mongoose from 'mongoose';
 export class Config {
     constructor() {
         dotenv.config();
+        this.connectDB();
     }
 
     async connectDB() {
