@@ -12,8 +12,17 @@ export class CourseRoutes {
     public routes(app) : void {
         const csrfProtection = csurf({ cookie: true });
         app.get('/courses', csrfProtection, (req, res) => {
-            this.courseController.getCourses().then(data => {
-                res.status(STATUS.SUCCESS).json(data);
+            this.courseController.getCourses().then((data: any) => {
+                res.status(data.status).json(data);
+            })
+            .catch(error => {
+                res.status(STATUS.INTERNAL_SERVER_ERROR).json(error);
+            })
+        });
+
+        app.post('/course', (req, res) => {
+            this.courseController.saveCourse(req.body).then((data: any) => {
+                res.status(data.status).json(data);
             })
             .catch(error => {
                 res.status(STATUS.INTERNAL_SERVER_ERROR).json(error);
